@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0.2vw;
+  width: 40vw;
+  height: 40vw;
+}
+
+.white {
+  /* background-color:white; */
+  background-position: center;
+  background-size: cover;
+  background-image: url("../../../assets/white-marble.jpg");
+  filter: brightness(1.1);
+}
+
+.black {
+  /* background-color:black; */
+  background-position: center;
+  background-size: cover;
+  /* background-image: url('../../../assets/green-marble.jpg') */
+  background-image: url("../../../assets/dark-wood.jpg");
+  filter: brightness(1.8);
+}
+
+.chess-box {
+  /* font-size: 5rem; */
+  font-size: 3vw;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Chess pieces */

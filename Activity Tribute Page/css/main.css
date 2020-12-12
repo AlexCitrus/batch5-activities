@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Neucha&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#main {
+  width: 100;
+  height: 100;
+  background: #00997f;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.menu {
+  background-color: #55433b;
+}
+
+li,
+a,
+button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff6ed;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  position: relative;
+}
+
+.logo {
+  width: 40px;
+  margin-top: -15px;
+  margin-right: 0 20px;
+  cursor: pointer;
+}
+
+.nav_links {
+  list-style: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav_links li a {
+  transition: all 0.3 ease 0s;
+}
+
+.nav_links li a:hover {
+  color: #c34b5b;
+}
+
+button {
+  padding: 9px 25px;
+  color: #55433b;
+  background-color: rgba(255, 246, 237, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3 ease 0s;
+}
+
+button:hover {
+  background-color: rgba(255, 246, 237, 0.8);
+}
+
+#img-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#image {
+  position: static;
+  top: 20%;
+  right: 30%;
+}
+
+#home-header {
+  position: relative;
+  top: 10%;
+  right: 20%;
+}
+
+.caption {
+  font-size: 30px;
+  font-family: "Neucha", cursive;
+  width: 60%;
+  height: 70%;
+  top: 25%;
+  left: 40%;
+  position: static;
+  color: black;
+}
+
+#img-caption {
+  font-family: "Neucha", cursive;
+  color: #402e32;
+}
+
+h1 {
+  font-family: "Neucha", cursive;
+}
+
+#albums {
+  width: 85%;
+  border: 10px solid #402e32;
+  position: static;
+}
+
+#About {
+  background-color: #55433b;
+  align-items: center;
+}
+
+#fun {
+  font-size: 40px;
+  width: 500px;
+  margin: 0 auto;
+  color: #fff6ed;
+
+  text-align: center;
+}
+
+.box {
+  background: #a1af9f;
+  box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.15),
+    0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 2em;
+}
+
+.box.style1 {
+  padding: 3em 2em 3.5em 2em;
+}
+
+.box.style1 h3 {
+  margin-bottom: 0.5em;
+}
+
+.box.style2 h3 {
+  margin-bottom: 0.25em;
+}
+
+.box.style2 .image {
+  position: relative;
+  left: 2em;
+  top: 2em;
+  margin: -4em 0 4em -4em;
+  width: auto;
+}
+
+h3 {
+  font-size: 40px;
+  font-family: "Ubuntu Mono", monospace;
+}
+
+#facts {
+  font-size: 30px;
+}
+
+#time {
+  font-size: 20px;
+}
