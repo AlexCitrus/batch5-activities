@@ -53,6 +53,13 @@ em {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
+label {
+  text-align: left;
+  color: white;
+}
+legend {
+  color: white;
+}
 @media (max-width: 400px) {
   main {
     top: 65px;
