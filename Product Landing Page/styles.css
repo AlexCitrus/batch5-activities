@@ -203,7 +203,7 @@ a {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .feature-inner {
@@ -242,7 +242,7 @@ a {
 
 #DNA {
   position: relative;
-  background: url("./images/stephs.jpg");
+  background: url("./images/stephs.jpg") no-repeat center/cover;
   height: 800px;
 }
 
@@ -252,7 +252,7 @@ a {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .specs {
@@ -315,6 +315,63 @@ iframe {
   justify-content: center;
 }
 
+form {
+  margin-bottom: 20px;
+}
+
+form input[type="email"] {
+  border-radius: 10px;
+  border: 1;
+  color: black;
+  display: inline-block;
+  padding: 10px 25px;
+  width: 100%;
+  flex: 1;
+}
+
+.btn-ghost {
+  box-shadow: none;
+  border-radius: 10px;
+  border: 1;
+  background-color: black;
+  margin-left: 20px;
+}
+
+form .flex {
+  display: flex;
+}
+
+input[type="submit" i] {
+  appearance: button-bevel;
+  user-select: none;
+  white-space: pre;
+  align-items: flex-start;
+  text-align: center;
+  font-size: 10px;
+  cursor: default;
+}
+
+input[type="submit" i]:hover {
+  cursor: pointer;
+}
+
+#contact {
+  position: relative;
+  background-color: #f0f0f0;
+  height: 220px;
+}
+
+#contact h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+#contact p {
+  font-size: 1.4rem;
+  margin-bottom: 4rem;
+  margin: 5%;
+}
+
 @media screen and (max-width: 1200px) {
   .tone-2 img {
     left: -8rem;
@@ -358,5 +415,41 @@ iframe {
 
   .tone-2 img {
     left: -5rem;
+  }
+
+  iframe {
+    width: 300px;
+    height: 350;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .logo {
+    padding-left: 1.5rem;
+  }
+
+  #nav-bar {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+    z-index: 1000;
+    background-color: white;
+  }
+
+  #nav-bar ul li {
+    padding: 0 1.5rem;
+    line-height: 5rem;
+  }
+
+  .tone-2 img {
+    left: -2.5rem;
+  }
+
+  iframe {
+    width: 200px;
+    height: 350;
   }
 }
