@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
 
 body {
-  --background-c: hsl(210, 45%, 60%);
+  --background-c: #262747;
   background-color: var(--background-c, lightgray);
   display: flex;
   flex-direction: column;
@@ -16,6 +16,7 @@ body {
 
 h1 {
   margin-bottom: 5px;
+  color: white;
 }
 
 header {
@@ -28,7 +29,7 @@ header {
 }
 
 main {
-  background-color: hsl(200, 60%, 100%);
+  background-color: #262747;
   height: 100%;
   max-width: 900px;
   margin: auto;
@@ -37,6 +38,19 @@ main {
   padding-top: 5px;
   position: relative;
   top: 80px;
+}
+
+em {
+  color: white;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 @media (max-width: 400px) {
@@ -70,12 +84,46 @@ main {
   grid-gap: 10px;
 }
 
+@media (max-width: 1120px) {
+  #survey-fields {
+    grid-template-columns: 1fr;
+  }
+  label {
+    text-align: left;
+    color: white;
+  }
+
+  main {
+    background-color: #262747;
+    height: 100%;
+    max-width: 700px;
+    margin: auto;
+    margin-bottom: 80px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    position: relative;
+    top: 80px;
+  }
+}
+
 @media (max-width: 600px) {
   #survey-fields {
     grid-template-columns: 1fr;
   }
   label {
     text-align: left;
+  }
+
+  main {
+    background-color: #262747;
+    height: 100%;
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 80px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    position: relative;
+    top: 80px;
   }
 }
 
@@ -102,9 +150,16 @@ fieldset label:hover {
 
 #submit {
   margin: auto;
-  background-color: var(--background-c, lightgray);
-  border-radius: 8px;
+  background-color: #36af64;
+  border: none;
   padding: 5px 12px 5px 12px;
   margin-top: 5px;
+  margin-bottom: 5px;
   font-size: 85%;
+  width: 500px;
+  color: white;
+}
+
+#submit:hover {
+  cursor: pointer;
 }

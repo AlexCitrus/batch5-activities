@@ -9,205 +9,212 @@
   <body>
     <header>
       <section class="title-text">
-        <h1 id="title">Survey Form</h1>
+        <h1 id="title">Avion School Survey Form</h1>
         <p id="description" class="title-text">
           <em style="font-size: 90%"
-            >Let us know how we can improve freeCodeCamp</em
+            >Thank you for taking the time to help us improve the platform</em
           >
         </p>
       </section>
     </header>
+    <div class="overlay">
+      <main>
+        <form id="survey-form">
+          <section id="survey-fields">
+            <!-- identification fields -->
+            <label for="name" id="name-label">Name</label>
+            <input
+              id="name"
+              type="text"
+              placeholder="Enter your name"
+              required
+            />
+            <label for="Email" id="email-label">Email</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              required
+            />
+            <label for="number" id="number-label">Age (Optional)</label>
+            <input
+              id="number"
+              type="number"
+              placeholder="Enter your age"
+              min="1"
+              max="125"
+              required
+            />
 
-    <main>
-      <form id="survey-form">
-        <section id="survey-fields">
-          <!-- identification fields -->
-          <label for="name" id="name-label">* Name:</label>
-          <input id="name" type="text" placeholder="enter your name" required />
-          <label for="Email" id="email-label">* Email:</label>
-          <input
-            id="email"
-            type="email"
-            placeholder="enter your email"
-            required
-          />
-          <label for="number" id="number-label">* Age:</label>
-          <input
-            id="number"
-            type="number"
-            placeholder="enter your age"
-            min="1"
-            max="125"
-            required
-          />
+            <!-- Which option best describes your current role -->
+            <label for="dropdown"
+              >Which option best describes your current role?</label
+            >
+            <select id="dropdown" form="survey-form">
+              <option value="" disabled selected>select an option</option>
+              <option value="student">Student</option>
+              <option value="full-time-job">Full time job</option>
+              <option value="full-time-learner">Full time learner</option>
+              <option value="prefer-not">Prefer not to say</option>
+              <option value="other">Other</option>
+            </select>
 
-          <!-- Which option best describes your current role -->
-          <label for="dropdown"
-            >Which option best describes your current role?</label
-          >
-          <select id="dropdown" form="survey-form">
-            <option value="" disabled selected>select an option</option>
-            <option value="student">Student</option>
-            <option value="full-time-job">Full time job</option>
-            <option value="full-time-learner">Full time learner</option>
-            <option value="prefer-not">Prefer not to say</option>
-            <option value="other">Other</option>
-          </select>
+            <!-- How likely is that you would recommend freeCodeCamp to a friend -->
+            <label for="recommendation"
+              >Would you recommend Avion School to a friend?</label
+            >
+            <fieldset id="recommendation">
+              <label for="r_definitely"
+                ><input
+                  type="radio"
+                  name="recommend"
+                  id="r_definitely"
+                  value="definitely"
+                  required
+                />Definitely</label
+              >
+              <label for="r_maybe"
+                ><input
+                  type="radio"
+                  name="recommend"
+                  id="r_maybe"
+                  value="maybe"
+                  required
+                />Maybe</label
+              >
+              <label for="r_not_sure"
+                ><input
+                  type="radio"
+                  name="recommend"
+                  id="r_not_sure"
+                  value="notsure"
+                  required
+                />Not sure</label
+              >
+            </fieldset>
 
-          <!-- How likely is that you would recommend freeCodeCamp to a friend -->
-          <label for="recommendation"
-            >* How likely is that you would recommend freeCodeCamp to a
-            friend?</label
-          >
-          <fieldset id="recommendation">
-            <label for="r_definitely"
-              ><input
-                type="radio"
-                name="recommend"
-                id="r_definitely"
-                value="definitely"
-                required
-              />Definitely</label
+            <!-- What do you like most in FCC -->
+            <label for="likethemost"
+              >What is your favorite feature of Avion School?</label
             >
-            <label for="r_maybe"
-              ><input
-                type="radio"
-                name="recommend"
-                id="r_maybe"
-                value="maybe"
-                required
-              />Maybe</label
-            >
-            <label for="r_not_sure"
-              ><input
-                type="radio"
-                name="recommend"
-                id="r_not_sure"
-                value="notsure"
-                required
-              />Not sure</label
-            >
-          </fieldset>
+            <select id="likethemost">
+              <option value="" disabled selected>select an option</option>
+              <option value="challenges">Challenges</option>
+              <option value="projects">Projects</option>
+              <option value="community">Community</option>
+              <option value="open-source">Open Source</option>
+            </select>
 
-          <!-- What do you like most in FCC -->
-          <label for="likethemost">What do you like most in FCC:</label>
-          <select id="likethemost">
-            <option value="" disabled selected>select an option</option>
-            <option value="challenges">Challenges</option>
-            <option value="projects">Projects</option>
-            <option value="community">Community</option>
-            <option value="open-source">Open Source</option>
-          </select>
+            <!-- Things that should be improved in the future -->
+            <label for="improvements"
+              >What would you like to see improve?</label
+            >
+            <fieldset id="improvements">
+              <legend>(<em>Check all that apply</em>)</legend>
+              <label for="c-fep"
+                ><input
+                  type="checkbox"
+                  name="improve-checks"
+                  id="c-fep"
+                  value="fep"
+                />Front-end Projects</label
+              >
+              <label for="c-bep"
+                ><input
+                  type="checkbox"
+                  name="improve-checks"
+                  id="c-bep"
+                  value="bep"
+                />Back-end Projects</label
+              >
+              <label for="c-datav"
+                ><input
+                  type="checkbox"
+                  name="improve-checks"
+                  id="c-datav"
+                  value="datav"
+                />Data Visualization</label
+              >
+              <label for="c-chlgs"
+                ><input
+                  type="checkbox"
+                  name="improve-checks"
+                  id="c-chlgs"
+                  value="chlgs"
+                />Challenges</label
+              >
+              <label for="c-osc"
+                ><input
+                  type="checkbox"
+                  name="improve-checks"
+                  id="c-osc"
+                  value="osc"
+                />Open Source Community</label
+              >
+              <label for="c-ghr"
+                ><input
+                  type="checkbox"
+                  name="improve-checks"
+                  id="c-ghr"
+                  value="ghr"
+                />Gitter help rooms</label
+              >
+              <label for="c-vid"
+                ><input
+                  type="checkbox"
+                  name="improve-checks"
+                  id="c-vid"
+                  value="vid"
+                />Videos</label
+              >
+              <label for="c-meet"
+                ><input
+                  type="checkbox"
+                  name="improve-checks"
+                  id="c-meet"
+                  value="meet"
+                />City Meetups</label
+              >
+              <label for="c-wiki"
+                ><input
+                  type="checkbox"
+                  name="improve-checks"
+                  id="c-wiki"
+                  value="wiki"
+                />Wiki</label
+              >
+              <label for="c-forum"
+                ><input
+                  type="checkbox"
+                  name="improve-checks"
+                  id="c-forum"
+                  value="forum"
+                />
+                Forum</label
+              >
+              <label for="c-addcours"
+                ><input
+                  type="checkbox"
+                  name="improve-checks"
+                  id="c-addcours"
+                  value="addcours"
+                />Additional Courses</label
+              >
+            </fieldset>
 
-          <!-- Things that should be improved in the future -->
-          <label for="improvements"
-            >Things that should be improved in the future:</label
-          >
-          <fieldset id="improvements">
-            <legend>(<em>Check all that apply</em>)</legend>
-            <label for="c-fep"
-              ><input
-                type="checkbox"
-                name="improve-checks"
-                id="c-fep"
-                value="fep"
-              />Front-end Projects</label
-            >
-            <label for="c-bep"
-              ><input
-                type="checkbox"
-                name="improve-checks"
-                id="c-bep"
-                value="bep"
-              />Back-end Projects</label
-            >
-            <label for="c-datav"
-              ><input
-                type="checkbox"
-                name="improve-checks"
-                id="c-datav"
-                value="datav"
-              />Data Visualization</label
-            >
-            <label for="c-chlgs"
-              ><input
-                type="checkbox"
-                name="improve-checks"
-                id="c-chlgs"
-                value="chlgs"
-              />Challenges</label
-            >
-            <label for="c-osc"
-              ><input
-                type="checkbox"
-                name="improve-checks"
-                id="c-osc"
-                value="osc"
-              />Open Source Community</label
-            >
-            <label for="c-ghr"
-              ><input
-                type="checkbox"
-                name="improve-checks"
-                id="c-ghr"
-                value="ghr"
-              />Gitter help rooms</label
-            >
-            <label for="c-vid"
-              ><input
-                type="checkbox"
-                name="improve-checks"
-                id="c-vid"
-                value="vid"
-              />Videos</label
-            >
-            <label for="c-meet"
-              ><input
-                type="checkbox"
-                name="improve-checks"
-                id="c-meet"
-                value="meet"
-              />City Meetups</label
-            >
-            <label for="c-wiki"
-              ><input
-                type="checkbox"
-                name="improve-checks"
-                id="c-wiki"
-                value="wiki"
-              />Wiki</label
-            >
-            <label for="c-forum"
-              ><input
-                type="checkbox"
-                name="improve-checks"
-                id="c-forum"
-                value="forum"
-              />
-              Forum</label
-            >
-            <label for="c-addcours"
-              ><input
-                type="checkbox"
-                name="improve-checks"
-                id="c-addcours"
-                value="addcours"
-              />Additional Courses</label
-            >
-          </fieldset>
+            <!-- Any Comments or Suggestions -->
+            <label for="comments">Any Comments or Suggestions?</label>
+            <textarea
+              style="height: 50px; resize: vertical"
+              id="comments"
+              placeholder="Enter your comment here"
+            ></textarea>
+          </section>
 
-          <!-- Any Comments or Suggestions -->
-          <label for="comments">Any Comments or Suggestions?</label>
-          <textarea
-            style="height: 50px; resize: vertical"
-            id="comments"
-            placeholder="enter a comment"
-          ></textarea>
-        </section>
-
-        <!-- submit -->
-        <button id="submit">submit</button>
-      </form>
-    </main>
+          <!-- submit -->
+          <button id="submit">Submit</button>
+        </form>
+      </main>
+    </div>
   </body>
 </html>
