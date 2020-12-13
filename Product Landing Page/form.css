@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto Lt", sans-serif;
+  font-size: 10px;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  max-width: 860px;
+  padding: 5rem 0;
+}
+
+h1 {
+  font-size: 5rem;
+  font-family: fantasy;
+  letter-spacing: 3px;
+  margin-right: -3px;
+  font-weight: 100;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0%;
+}
+
+.btn {
+  display: flex;
+  padding: 2rem;
+  color: #f7f7f6;
+  font-size: 1.5rem;
+  font-weight: 900;
+  transition: all 0.5s;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  max-width: 860px;
+}
+
+.info-btns {
+  display: flex;
+}
+
+.discover-btn {
+  background-color: #141110;
+}
