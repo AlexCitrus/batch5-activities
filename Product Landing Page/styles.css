@@ -35,16 +35,6 @@ a {
   z-index: 999;
 }
 
-.menu-toggle i,
-.fa-times {
-  font-size: 3.5rem;
-}
-
-.fa-times {
-  display: none;
-  cursor: pointer;
-}
-
 #nav-bar {
   position: fixed;
   width: 100%;
@@ -449,7 +439,7 @@ input[type="submit" i]:hover {
   }
 
   iframe {
-    width: 200px;
+    width: 300px;
     height: 350;
   }
 }
