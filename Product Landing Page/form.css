@@ -64,3 +64,17 @@ h2 {
 .discover-btn {
   background-color: #141110;
 }
+
+@media screen and (max-width: 600px) {
+  img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    max-width: 300px;
+    max-height: 300px;
+    padding: 5rem 0;
+  }
+}
