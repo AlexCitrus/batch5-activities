@@ -2,7 +2,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: "Inconsolata", monospace;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
 }
 
@@ -26,24 +26,30 @@ body {
 .calculator-grid button {
   cursor: pointer;
   font-size: 2rem;
-  border: 1px solid white;
+  color: #36353a;
+  border: 1px solid #a3a2a7;
   outline: none;
-  background-color: rgba(225, 225, 225, 0.75);
+  background-color: #d4d3d8;
   border-radius: 0px;
 }
 
 .calculator-grid button:hover {
-  background-color: rgba(225, 225, 225, 0.9);
+  background-color: #c6c5ca;
 }
 
 .span-two {
   grid-column: span 2;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
 }
 
 #inputLabel {
   grid-column: 1 / -1;
-  background-color: rgba(0, 0, 0, 0.75);
-  border-radius: 20px;
+  background-color: #1f1f1f;
+  border-radius: 0px;
+  border-right: 1px solid white;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
@@ -53,7 +59,33 @@ body {
   word-break: break-all;
 }
 
+#yellow,
+#yellowB {
+  background-color: #f98d12;
+  border: 1px solid #7a7a7a;
+  border-right: 1px solid white;
+}
+
+#yellow:hover {
+  background-color: #f89d35;
+  border: 1px solid #7a7a7a;
+}
+
 #inputLabel {
   color: white;
   font-size: 2.5rem;
 }
+
+#yellowB {
+  border-bottom: 1px solid white;
+}
+
+#left {
+  border-left: 1px solid white;
+}
+
+/* @media screen and (max-width: 320px * 568px) {
+  body {
+    max-width: 320px * 568px;
+  }
+} */

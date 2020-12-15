@@ -6,7 +6,7 @@
     <title>Calculator</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
     <link rel="Stylesheet" href="./main.css" />
@@ -14,24 +14,26 @@
   <body>
     <div class="calculator-grid">
       <div id="inputLabel">0</div>
-      <button onclick="pushBtn(this);" class="span-two">AC</button>
+      <button onclick="pushBtn(this);" id="left">AC</button>
       <button onclick="pushBtn(this);">DEL</button>
-      <button onclick="pushBtn(this);">÷</button>
-      <button onclick="pushBtn(this);">1</button>
+      <button onclick="pushBtn(this);">%</button>
+      <button onclick="pushBtn(this);" id="yellow">÷</button>
+      <button onclick="pushBtn(this);" id="left">1</button>
       <button onclick="pushBtn(this);">2</button>
       <button onclick="pushBtn(this);">3</button>
-      <button onclick="pushBtn(this);">*</button>
-      <button onclick="pushBtn(this);">4</button>
+      <button onclick="pushBtn(this);" id="yellow">*</button>
+      <button onclick="pushBtn(this);" id="left">4</button>
       <button onclick="pushBtn(this);">5</button>
       <button onclick="pushBtn(this);">6</button>
-      <button onclick="pushBtn(this);">+</button>
-      <button onclick="pushBtn(this);">7</button>
+      <button onclick="pushBtn(this);" id="yellow">-</button>
+      <button onclick="pushBtn(this);" id="left">7</button>
       <button onclick="pushBtn(this);">8</button>
       <button onclick="pushBtn(this);">9</button>
-      <button onclick="pushBtn(this);">-</button>
+      <button onclick="pushBtn(this);" id="yellow">+</button>
+      <button onclick="pushBtn(this);" class="span-two">0</button>
       <button onclick="pushBtn(this);">.</button>
-      <button onclick="pushBtn(this);">0</button>
-      <button onclick="pushBtn(this);" class="span-two">=</button>
+
+      <button onclick="pushBtn(this);" id="yellowB">=</button>
     </div>
     <script src="./script.js"></script>
   </body>
