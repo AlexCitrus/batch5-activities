@@ -8,3 +8,4 @@ This is where I submit all my works in AvionSchool.
 - [Chessboard Grid](./Chessboard%20Grid/gridChess.html)
 - [Product Landing Page](./Product%20Landing%20Page/ProductLandingPage.html)
 - [Survey Form](./Survey%20Form/surveyform.html)
+- [Calculator using JS](./Calculator/calculator.html)
