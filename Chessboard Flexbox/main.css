@@ -48,12 +48,3 @@ h1 {
   font-size: 4vw;
   border: black 1px solid;
 }
-
-.box-1:hover {
-  transform: scale(1.1);
-  cursor: grab;
-}
-.box-2:hover {
-  transform: scale(1.1);
-  cursor: grab;
-}
