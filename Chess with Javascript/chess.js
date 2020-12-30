@@ -48,9 +48,9 @@ function createPiece(cell) {
   } else if ((i == 0 || i == 7) && (j == 2 || j == 5)) {
     piece = "bishop";
   } else if ((i == 0 || i == 7) && j == 3) {
-    piece = "king";
-  } else if ((i == 0 || i == 7) && j == 4) {
     piece = "queen";
+  } else if ((i == 0 || i == 7) && j == 4) {
+    piece = "king";
   } else {
     return;
   }
