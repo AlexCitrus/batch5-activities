@@ -10,5 +10,6 @@ This is where I submit all my works in AvionSchool.
 - [Survey Form](./Survey%20Form/surveyform.html)
 - [Calculator using JS](./Calculator/calculator.html)
 - [Code Challenge](https://jsfiddle.net/3e14zfLv/6/)
+- [Code Challenge #2](https://jsfiddle.net/j592feat/9/)
 
 - [Chess Game with JavaScript](./Chess%20with%20Javascript/index.html)
