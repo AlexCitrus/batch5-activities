@@ -11,5 +11,6 @@ This is where I submit all my works in AvionSchool.
 - [Calculator using JS](./Calculator/calculator.html)
 - [Code Challenge](https://jsfiddle.net/3e14zfLv/6/)
 - [Code Challenge #2](https://jsfiddle.net/s3rwfaeo/21/)
+- [Code Challenge #3](./Coding%20Challenge%20Part%202/index.html)
 
 - [Chess Game with JavaScript](./Chess%20with%20Javascript/index.html)
