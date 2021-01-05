@@ -351,13 +351,30 @@ function drawCard() {
       "p3"
     ).innerHTML = `Cards remaining: ${shuffledDeck.length}`;
     document.getElementById("p4").innerHTML = `${shuffledDeck}`;
+    drawHistory();
   } else {
     document.getElementById("btn1").disabled = true;
   }
 }
+let history = [];
+document.getElementById("p5").innerHTML = history;
 
-function drawHistory() {}
+function drawHistory() {
+  history.push(randomCard2);
+  document.getElementById("p5").innerHTML = history;
+}
 
+function reShuffle() {
+  let history = document.getElementById("p5").innerHTML.split(",");
+  shuffledDeck.push(history);
+  shuffledDeck.length = 52;
+  shuffledDeck = shuffledDeck;
+  document.getElementById("p2").innerHTML = `Card Here:`;
+  document.getElementById(
+    "p3"
+  ).innerHTML = `Cards remaining: ${shuffledDeck.length}`;
+  document.getElementById("p4").innerHTML = `${shuffledDeck}`;
+}
 // document
 document.getElementById("p2").innerHTML = `Card Here:`;
 document.getElementById(
