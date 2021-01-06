@@ -362,7 +362,7 @@ function drawCard() {
       "p2"
     ).innerHTML = `Card Dealt: ${randomCard} , ${randomCard2}`;
     document.getElementById("p3").innerHTML = `Cards remaining: ${deck.length}`;
-    document.getElementById("p4").innerHTML = `${deck}`;
+    document.getElementById("p4").innerHTML = `Live View: ${deck}`;
     drawHistory();
   } else {
     alert("You need to reshuffle.");
@@ -373,26 +373,22 @@ function drawCard() {
       "p2"
     ).innerHTML = `Card Dealt: ${randomCard} , ${randomCard2}`;
     document.getElementById("p3").innerHTML = `Cards remaining: ${deck.length}`;
-    document.getElementById("p4").innerHTML = `${deck}`;
-    document.getElementById("p5").innerHTML = history;
+    document.getElementById("p4").innerHTML = `Live View: ${deck}`;
+    document.getElementById("p5").innerHTML = `Draw History: ${history}`;
   }
 }
 
 function prev() {
   currentIndex--;
   let givenCard = history[currentIndex];
-
   const { givenCardString } = dealGivenCard(givenCard);
 
-  // re-initialize
   document.getElementById("p2").innerHTML = `Previous: ${givenCardString}`;
 
-  //Disable prev
   if (currentIndex <= 0) {
     document.getElementById("prevBtn").disabled = true;
   }
 
-  // enable next
   document.getElementById("nxtBtn").disabled = false;
 }
 
@@ -402,22 +398,19 @@ function next() {
 
   const { givenCardString } = dealGivenCard(givenCard);
 
-  // re-initialize
   document.getElementById("p2").innerHTML = `Next: ${givenCardString}`;
 
-  //Disable next
   if (currentIndex >= history.length - 1) {
     document.getElementById("nxtBtn").disabled = true;
     document.getElementById("p2").innerHTML = `Card Dealt: ${givenCardString}`;
   }
 
-  // enable prev
   document.getElementById("prevBtn").disabled = false;
 }
 
 function drawHistory() {
   history.push(randomCard2);
-  document.getElementById("p5").innerHTML = history;
+  document.getElementById("p5").innerHTML = `Draw History: ${history}`;
 }
 
 function reShuffle() {
@@ -427,8 +420,8 @@ function reShuffle() {
   shuffledDeck.length = 52;
   document.getElementById("p2").innerHTML = `Card Here:`;
   document.getElementById("p3").innerHTML = `Cards remaining: ${deck.length}`;
-  document.getElementById("p4").innerHTML = deck;
-  document.getElementById("p5").innerHTML = history;
+  document.getElementById("p4").innerHTML = `Live View: ${deck}`;
+  document.getElementById("p5").innerHTML = `Draw History: ${history}`;
 }
 
 function shuffle(array) {
@@ -453,8 +446,6 @@ function shuffle(array) {
 // document
 disableButtons();
 document.getElementById("p2").innerHTML = `Card Here:`;
-document.getElementById(
-  "p3"
-).innerHTML = `Cards remaining: ${shuffledDeck.length}`;
-document.getElementById("p4").innerHTML = `${shuffledDeck}`;
-document.getElementById("p5").innerHTML = history;
+document.getElementById("p3").innerHTML = `Cards remaining: ${deck.length}`;
+document.getElementById("p4").innerHTML = `Live View: ${deck}`;
+document.getElementById("p5").innerHTML = `Draw History: ${history}`;
