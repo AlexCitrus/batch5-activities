@@ -1,5 +1,12 @@
 // Initial variables
 let suits = ["♣", "♠", "♡", "♢"];
+let randomCard;
+let randomCard2;
+let deck = shuffleDeckOfCards(createDeck());
+let shuffledDeck = shuffleDeckOfCards(deck);
+let history = [];
+let currentIndex;
+
 //First function for letter cards
 function specialCard(num) {
   if (num == 1) {
@@ -30,7 +37,7 @@ function reverseSpecialCard(letter) {
   }
 }
 
-function createDeck(suits) {
+function createDeck() {
   let deck = [];
   for (const suit of suits) {
     for (let start = 1; start <= 13; start++) {
@@ -39,8 +46,7 @@ function createDeck(suits) {
   }
   return deck;
 }
-
-let deck = createDeck(suits);
+// let deck = createDeck(suits);
 /* console.log(`Original Deck: ${deck}`) */
 
 // Shuffle deck
@@ -52,17 +58,18 @@ function getRandomInt(max) {
 
 // 1st main function
 function shuffleDeckOfCards(arrayInput) {
-  let deck = [...arrayInput];
+  // Deep copy
+  let deck = arrayInput.slice();
 
   var currentIndex = deck.length - 1;
 
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
     // Pick a remaining element...
-    randomIndex = getRandomInt(currentIndex);
+    let randomIndex = getRandomInt(currentIndex);
 
     // And swap it with the current element.
-    temporaryValue = deck[currentIndex];
+    let temporaryValue = deck[currentIndex];
     deck[currentIndex] = deck[randomIndex];
     deck[randomIndex] = temporaryValue;
 
@@ -71,15 +78,6 @@ function shuffleDeckOfCards(arrayInput) {
 
   return deck;
 }
-let shuffledDeck = shuffleDeckOfCards(deck);
-console.log(
-  "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
-);
-console.log(`Shuffled Deck: ${shuffledDeck}`);
-// document.getElementById("p1").innerHTML = `Shuffled Deck: ${shuffledDeck}`;
-console.log(
-  "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
-);
 
 // Sort shuffled cards by suit
 function sortDeckBySuit(arrayInput) {
@@ -93,12 +91,6 @@ function sortDeckBySuit(arrayInput) {
   }
   return deck;
 }
-
-let sortedDeck = sortDeckBySuit(shuffledDeck);
-console.log(`Sorted Deck by Suit: ${sortedDeck}`);
-console.log(
-  "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
-);
 
 //  Deal a card
 
@@ -329,7 +321,6 @@ function dealCard(arrayInput) {
   }
   card_value = cardNumberToWords(card_value[0]);
   let randomCardString = card_value + " of " + suit;
-  //   let randomCardString = card_value;
 
   //update deck
   arrayInput.splice(randomIndex, 1);
@@ -337,27 +328,92 @@ function dealCard(arrayInput) {
   return randomCardString;
 }
 
-let randomCard;
-let randomCard2;
+function dealGivenCard(givenCard) {
+  let [suit, ...card_value] = givenCard;
+  /* console.log(givenCard) */
+  suit = cardSymbolToWords(suit[0]);
+
+  if (card_value.length == 2) {
+    card_value = [card_value[0] + card_value[1]];
+  }
+  card_value = cardNumberToWords(card_value[0]);
+  let givenCardString = card_value + " of " + suit + " " + givenCard;
+
+  return { givenCardString, givenCard };
+}
+
+function disableButtons(value = true) {
+  document.getElementById("prevBtn").disabled = value;
+  document.getElementById("nxtBtn").disabled = value;
+  // document.getElementById("deal").disabled = false;
+}
 
 function drawCard() {
-  randomCard = dealCard(shuffledDeck);
+  randomCard = dealCard(deck);
   randomCard2 = cardWordstoStandard(randomCard);
-  if (shuffledDeck.length > 0) {
+  currentIndex = history.length - 1;
+  if (history.length > 1) {
+    document.getElementById("prevBtn").disabled = false;
+  }
+
+  document.getElementById("nxtBtn").disabled = true;
+  if (deck.length > 0) {
     document.getElementById(
       "p2"
     ).innerHTML = `Card Dealt: ${randomCard} , ${randomCard2}`;
-    document.getElementById(
-      "p3"
-    ).innerHTML = `Cards remaining: ${shuffledDeck.length}`;
-    document.getElementById("p4").innerHTML = `${shuffledDeck}`;
+    document.getElementById("p3").innerHTML = `Cards remaining: ${deck.length}`;
+    document.getElementById("p4").innerHTML = `${deck}`;
     drawHistory();
   } else {
-    document.getElementById("btn1").disabled = true;
+    alert("You need to reshuffle.");
+    deck = shuffleDeckOfCards(history);
+    history = [];
+    currentIndex = null;
+    document.getElementById(
+      "p2"
+    ).innerHTML = `Card Dealt: ${randomCard} , ${randomCard2}`;
+    document.getElementById("p3").innerHTML = `Cards remaining: ${deck.length}`;
+    document.getElementById("p4").innerHTML = `${deck}`;
+    document.getElementById("p5").innerHTML = history;
   }
 }
-let history = [];
-document.getElementById("p5").innerHTML = history;
+
+function prev() {
+  currentIndex--;
+  let givenCard = history[currentIndex];
+
+  const { givenCardString } = dealGivenCard(givenCard);
+
+  // re-initialize
+  document.getElementById("p2").innerHTML = `Previous: ${givenCardString}`;
+
+  //Disable prev
+  if (currentIndex <= 0) {
+    document.getElementById("prevBtn").disabled = true;
+  }
+
+  // enable next
+  document.getElementById("nxtBtn").disabled = false;
+}
+
+function next() {
+  currentIndex++;
+  let givenCard = history[currentIndex];
+
+  const { givenCardString } = dealGivenCard(givenCard);
+
+  // re-initialize
+  document.getElementById("p2").innerHTML = `Next: ${givenCardString}`;
+
+  //Disable next
+  if (currentIndex >= history.length - 1) {
+    document.getElementById("nxtBtn").disabled = true;
+    document.getElementById("p2").innerHTML = `Card Dealt: ${givenCardString}`;
+  }
+
+  // enable prev
+  document.getElementById("prevBtn").disabled = false;
+}
 
 function drawHistory() {
   history.push(randomCard2);
@@ -365,25 +421,40 @@ function drawHistory() {
 }
 
 function reShuffle() {
-  let history = document.getElementById("p5").innerHTML.split(",");
-  shuffledDeck.push(history);
+  deck = shuffleDeckOfCards(deck.concat(history));
+  history = [];
+
   shuffledDeck.length = 52;
-  shuffledDeck = shuffledDeck;
   document.getElementById("p2").innerHTML = `Card Here:`;
-  document.getElementById(
-    "p3"
-  ).innerHTML = `Cards remaining: ${shuffledDeck.length}`;
-  document.getElementById("p4").innerHTML = `${shuffledDeck}`;
+  document.getElementById("p3").innerHTML = `Cards remaining: ${deck.length}`;
+  document.getElementById("p4").innerHTML = deck;
+  document.getElementById("p5").innerHTML = history;
+}
+
+function shuffle(array) {
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
 // document
+disableButtons();
 document.getElementById("p2").innerHTML = `Card Here:`;
 document.getElementById(
   "p3"
 ).innerHTML = `Cards remaining: ${shuffledDeck.length}`;
 document.getElementById("p4").innerHTML = `${shuffledDeck}`;
-console.log(`Card Dealt: ${randomCard}`);
-console.log(
-  "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
-);
-/* console.log(`Updated length of deck: ${shuffledDeck.length}`) */
-/* console.log(shuffledDeck); */
+document.getElementById("p5").innerHTML = history;
