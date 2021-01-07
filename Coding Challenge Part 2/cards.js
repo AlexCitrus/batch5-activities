@@ -46,10 +46,6 @@ function createDeck() {
   }
   return deck;
 }
-// let deck = createDeck(suits);
-/* console.log(`Original Deck: ${deck}`) */
-
-// Shuffle deck
 
 // Get random value within range
 function getRandomInt(max) {
@@ -78,21 +74,6 @@ function shuffleDeckOfCards(arrayInput) {
 
   return deck;
 }
-
-// Sort shuffled cards by suit
-function sortDeckBySuit(arrayInput) {
-  let deck = [];
-  for (const suit of suits) {
-    for (const card of arrayInput) {
-      if (card[0] == suit) {
-        deck.push(card);
-      }
-    }
-  }
-  return deck;
-}
-
-//  Deal a card
 
 // Convert card value to words
 function cardNumberToWords(num) {
@@ -137,52 +118,6 @@ function cardSymbolToWords(symb) {
     return "Clubs";
   } else {
     return symb;
-  }
-}
-
-function cardWordstoNumbers(word) {
-  if (word == "Ace") {
-    return "A";
-  } else if (word == "Two") {
-    return "2";
-  } else if (word == "Three") {
-    return "3";
-  } else if (word == "Four") {
-    return "4";
-  } else if (word == "Five") {
-    return "5";
-  } else if (word == "Six") {
-    return "6";
-  } else if (word == "Seven") {
-    return "7";
-  } else if (word == "Eight") {
-    return "8";
-  } else if (word == "Nine") {
-    return "9";
-  } else if (word == "Ten") {
-    return "10";
-  } else if (word == "Jack") {
-    return "J";
-  } else if (word == "Queen") {
-    return "Q";
-  } else if (word == "King") {
-    return "K";
-  } else {
-    return word;
-  }
-}
-
-function cardWordstoSymbol(word) {
-  if (word == "Spades") {
-    return "♠";
-  } else if (word == "Hearts") {
-    return "♡";
-  } else if (word == "Diamonds") {
-    return "♢";
-  } else if (word == "Clubs") {
-    return "♣";
-  } else {
-    return word;
   }
 }
 
@@ -307,13 +242,12 @@ function cardWordstoStandard(word) {
   }
 }
 
-// 4th main function
-function dealCard(arrayInput) {
-  let randomIndex = getRandomInt(arrayInput.length);
-  let randomCard = arrayInput[randomIndex];
+function dealCard(array) {
+  let randomIndex = getRandomInt(array.length);
+  let randomCard = array[randomIndex];
 
   let [suit, ...card_value] = randomCard;
-  /* console.log(randomCard) */
+
   suit = cardSymbolToWords(suit[0]);
 
   if (card_value.length == 2) {
@@ -323,7 +257,7 @@ function dealCard(arrayInput) {
   let randomCardString = card_value + " of " + suit;
 
   //update deck
-  arrayInput.splice(randomIndex, 1);
+  array.splice(randomIndex, 1);
 
   return randomCardString;
 }
