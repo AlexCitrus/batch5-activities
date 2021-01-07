@@ -1,57 +1,57 @@
-let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let result = "";
+/* Store questions, choices, and answers in an array */
 const question = [];
 const choices = [
-  ["Hyper Text Markup Language", "Hot Mail", "How to Make Lumpia"],
-  ["2", "1", "3"],
+  ["Hyper Text Markup Language", "Hot Mail", "How to Make Lumpia"], // Choices for Question No. 1
+  ["2", "1", "3"], // Choices for Question No. 2
   [
     "Opening tag has a / in front",
     "Closing tag has a / in front",
     "There is no difference",
-  ],
-  ["Break tag", "A broken one", "An opening tag"],
-  ["Opening", "Closing"],
-  ["Opening", "Closing"],
-  ["The last page", "The home page", "The second page"],
+  ], // Choices for Question No. 3
+  ["Break tag", "A broken one", "An opening tag"], // Choices for Question No. 4
+  ["Opening", "Closing"], // Choices for Question No. 5
+  ["Opening", "Closing"], // Choices for Question No. 6
+  ["The last page", "The home page", "The second page"], // Choices for Question No. 7
   [
     `src=”image.jpg/gif” alt=”type some text”`,
     `Src=”image.jpg/gif” alt=”type some text”`,
-  ],
-  ["Tag", "Empty element", "Closed element"],
-  ["< img / >", "< img > < / img >", "< / img>"],
-  ["Quotation marks", "Commas", "Parenthesis"],
-  ["In the same folder", "Where ever is fine", "In different folders"],
+  ], // Choices for Question No. 8
+  ["Tag", "Empty element", "Closed element"], // Choices for Question No. 9
+  ["< img / >", "< img > < / img >", "< / img>"], // Choices for Question No. 10
+  ["Quotation marks", "Commas", "Parenthesis"], // Choices for Question No. 11
+  ["In the same folder", "Where ever is fine", "In different folders"], // Choices for Question No. 12
   [
     "Adds a link to google on the page",
     "Adds a search engine to the page",
     "Nothing",
-  ],
-  ["Page 4", "Homepage", "Table of contents"],
+  ], // Choices for Question No. 13
+  ["Page 4", "Homepage", "Table of contents"], // Choices for Question No. 14
   [
     "Nothing",
     "Brings up a note pad with the HTML code already used for the site.",
     "Opens a new website.",
-  ],
+  ], // Choices for Question No. 15
 ];
 
 const answers = [
-  "A", //1
-  "A", //2
-  "B", //3
-  "A", //4
-  "A", //5
-  "B", //6
-  "B", //7
-  "A", //8
-  "B", //9
-  "A", //10
-  "A", //11
-  "A", //12
-  "A", //13
-  "B", //14
-  "B", //15
+  "A", // Correct answer for question No. 1
+  "A", // Correct answer for question No. 2
+  "B", // Correct answer for question No. 3
+  "A", // Correct answer for question No. 4
+  "A", // Correct answer for question No. 5
+  "B", // Correct answer for question No. 6
+  "B", // Correct answer for question No. 7
+  "A", // Correct answer for question No. 8
+  "B", // Correct answer for question No. 9
+  "A", // Correct answer for question No. 10
+  "A", // Correct answer for question No. 11
+  "A", // Correct answer for question No. 12
+  "A", // Correct answer for question No. 13
+  "B", // Correct answer for question No. 14
+  "B", // Correct answer for question No. 15
 ];
 
+/* Converter of choices from numbers to alphabet */
 const toAlpha = (num) => {
   if (num < 1 || num > 26 || typeof num !== "number") {
     return -1;
@@ -60,6 +60,7 @@ const toAlpha = (num) => {
   return String.fromCharCode(num + leveller);
 };
 
+/* Questions Array */
 question[0] = "What does HTML stand for?";
 question[1] = "How many tags are in a regular element?";
 question[2] = "What is the difference in an opening tag and a closing tag?";
@@ -78,37 +79,39 @@ question[13] =
   "What is always a welcome page, and explains the purpose or topic of the site?";
 question[14] = "What does View Source do?";
 
+/* Note */
 console.log(`Enter "startQuiz()" to begin quiz`);
 
+/* Main Function */
 function startQuiz() {
   this.questions = question;
   this.choices = choices;
   this.correctAnswers = answers;
   this.userAnswer = null;
-  this.questionIndex = null;
+  this.pickedQuestion = null;
 
   console.log("");
   console.log("Enter the letter of the correct answer");
-  console.log("");
+  console.log(""); // picks a random index from an array
 
-  this.randomize = function () {
+  /* Random number generator */ this.randomize = function () {
     let random = this.questions.length;
     return Math.floor(Math.random() * Math.floor(random));
   };
 
   this.randomQuestion = function () {
-    this.questionIndex = randomize();
+    this.pickedQuestion = randomize();
     let index;
     console.log(
-      this.questionIndex + 1 + ". " + this.questions[this.questionIndex]
+      this.pickedQuestion + 1 + ". " + this.questions[this.pickedQuestion]
     );
     console.log("");
 
-    for (index in this.choices[this.questionIndex]) {
+    for (index in this.choices[this.pickedQuestion]) {
       console.log(
         toAlpha(parseInt(index) + 1) +
           ". " +
-          this.choices[this.questionIndex][index]
+          this.choices[this.pickedQuestion][index]
       );
     }
 
@@ -121,7 +124,7 @@ function startQuiz() {
     console.log("You Answered: ", this.userAnswer.toUpperCase());
 
     if (
-      this.userAnswer.toUpperCase() === this.correctAnswers[this.questionIndex]
+      this.userAnswer.toUpperCase() === this.correctAnswers[this.pickedQuestion]
     ) {
       console.log("Your answer is correct!");
       console.log("");
@@ -129,13 +132,27 @@ function startQuiz() {
     } else {
       console.log("Your answer is wrong!");
       console.log("");
-      console.log(
-        "The correct answer is: " + this.correctAnswers[this.questionIndex]
-      );
+
+      if (this.correctAnswers[this.pickedQuestion] === "A") {
+        console.log(
+          "The correct answer is: " +
+            this.correctAnswers[this.pickedQuestion] +
+            ". " +
+            this.choices[this.pickedQuestion][0]
+        );
+      } else if (this.correctAnswers[this.pickedQuestion] === "B") {
+        console.log(
+          "The correct answer is: " +
+            this.correctAnswers[this.pickedQuestion] +
+            ". " +
+            this.choices[this.pickedQuestion][1]
+        );
+      }
       console.log("");
       console.log(`Enter "startQuiz()" to generate another random question`);
     }
   };
 
+  // Generate Random Question
   this.randomQuestion();
 }
