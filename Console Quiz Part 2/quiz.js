@@ -172,6 +172,8 @@ function startQuiz() {
         alert("YOU ARE ON A 10 POINT STREAK!");
       } else if (this.streak === 15) {
         alert("YOU ARE ON A 15 POINT STREAK!");
+      } else if (this.streak == 20) {
+        alert("YOU ARE ON A 20 POINT STREAK!");
       }
 
       // console.log(`Enter "startQuiz()" to generate another random question`);
@@ -206,7 +208,7 @@ function startQuiz() {
       // console.log(`Enter "startQuiz()" to generate another random question`);
       console.log(`Your Points: ${this.userScore}`);
       console.log("");
-      this.streakChecker();
+      // this.streakChecker();
       this.randomQuestion();
     }
   };
