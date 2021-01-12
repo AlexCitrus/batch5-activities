@@ -86,6 +86,7 @@ console.log(`Enter "startQuiz()" to begin quiz`);
 
 /* Main Function */
 function startQuiz() {
+  // this.H1 = document.getElementsByTagName("h1");
   this.questions = question;
   this.choices = choices;
   this.correctAnswers = answers;
@@ -129,6 +130,8 @@ function startQuiz() {
   this.randomQuestion = function () {
     this.pickedQuestion = randomize();
     let index;
+    // this.H1 =
+    //   this.pickedQuestion + 1 + ". " + this.questions[this.pickedQuestion];
     console.log(
       this.pickedQuestion + 1 + ". " + this.questions[this.pickedQuestion]
     );
@@ -142,7 +145,7 @@ function startQuiz() {
       );
     }
 
-    this.userAnswer = prompt("Choose the number of correct answer.");
+    this.userAnswer = prompt("Choose the letter of correct answer.");
     this.checkAnswer();
   };
 
