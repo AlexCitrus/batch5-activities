@@ -144,6 +144,12 @@ function startQuiz() {
       console.log("");
       // console.log(`Enter "startQuiz()" to generate another random question`);
       this.randomQuestion();
+    } else if (this.userAnswer.toUpperCase() === "EXIT") {
+      console.log("");
+      // console.log(`Enter "startQuiz()" to generate another random question`);
+      console.log(`Your Points: ${this.userScore}`);
+      console.log("");
+      console.log("You quit oof");
     } else {
       console.log("Your answer is wrong!");
       console.log("");
