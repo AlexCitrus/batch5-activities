@@ -166,14 +166,8 @@ function startQuiz() {
       this.addPoint();
       console.log(`Your Points: ${this.userScore}`);
       console.log("");
-      if (this.streak === 5) {
-        alert("YOU ARE ON A 5 POINT STREAK!");
-      } else if (this.streak === 10) {
-        alert("YOU ARE ON A 10 POINT STREAK!");
-      } else if (this.streak === 15) {
-        alert("YOU ARE ON A 15 POINT STREAK!");
-      } else if (this.streak == 20) {
-        alert("YOU ARE ON A 20 POINT STREAK!");
+      if (this.streak % 5 === 0) {
+        alert(`YOU ARE ON A ${this.streak} POINT STREAK!!!`);
       }
 
       // console.log(`Enter "startQuiz()" to generate another random question`);
