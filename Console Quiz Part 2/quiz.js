@@ -185,7 +185,7 @@ function startQuiz() {
       console.log("");
       console.log("You quit oof");
     } else {
-      this.streak--;
+      this.streak = 0;
       console.log("Your answer is wrong!");
       console.log("");
 
