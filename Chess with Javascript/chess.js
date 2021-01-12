@@ -11,7 +11,7 @@ let to_coords = [];
 let to_cell = "";
 let gameOn = true;
 
-let board = document.querySelector("#board");
+let board = document.getElementById("board");
 
 function boardCreation() {
   for (let i = 7; i >= 0; i--) {
@@ -54,6 +54,7 @@ function createPiece(cell) {
   } else {
     return;
   }
+
   img = document.createElement("img");
   img.setAttribute("data-piece", piece);
   img.classList.add("piece");
@@ -84,43 +85,7 @@ function colorBoard(x, y) {
   }
 }
 
-let bench = document.getElementById("bench");
-
-function benchCreation() {
-  for (let j = 0; j < 2; j++) {
-    let color_bench = document.createElement("div");
-    let header = document.createElement("h2");
-    let next_bench = document.createElement("br");
-
-    if (j == 0) {
-      color_bench.id = "white";
-      header.innerHTML = "White Bench";
-    } else {
-      color_bench.id = "black";
-      header.innerHTML = "Black Bench";
-    }
-
-    color_bench.appendChild(header);
-
-    for (let i = 0; i < 16; i++) {
-      cell = document.createElement("div");
-      cell.id = i;
-
-      if (i % 16 == 0) {
-        cell.classList.add("bench", "open", "row");
-      } else {
-        cell.classList.add("bench", "open");
-      }
-
-      color_bench.appendChild(cell);
-    }
-    bench.appendChild(next_bench);
-    bench.appendChild(color_bench);
-  }
-}
-
 boardCreation();
-benchCreation();
 
 document.body.addEventListener("click", function (e) {
   if (
@@ -153,9 +118,7 @@ function newGame() {
   to_coords = [];
   to_cell = "";
   board.innerHTML = "";
-  bench.innerHTML = "";
   boardCreation();
-  benchCreation();
   gameOn = true;
 }
 
@@ -211,7 +174,7 @@ function takeTurn(from, to) {
   let turn = {};
   if (to.firstChild) {
     turn.removedPiece = to.removeChild(to.firstChild);
-    toBench(turn.removedPiece);
+    // to(turn.removedPiece);
   }
   piece = from.removeChild(from.firstChild);
   to.appendChild(piece);
@@ -231,7 +194,6 @@ function revertTurn() {
   turn = turns.pop();
 
   if ("removedPiece" in turn) {
-    fromBench(turn.removedPiece);
     turn.to.appendChild(turn.removedPiece);
   }
 
@@ -257,26 +219,6 @@ function switchTurn() {
     );
     gameOver();
   }
-}
-
-function toBench(img) {
-  img.dataset.color;
-
-  bench_color = bench.querySelector(`#${img.dataset.color}`);
-
-  next_slot = bench_color.querySelector(".open");
-  next_slot.appendChild(img);
-  next_slot.classList.remove("open");
-  next_slot.classList.add("closed");
-}
-
-function fromBench(img) {
-  bench_color = bench.querySelector(`#${img.dataset.color}`);
-
-  slots = bench_color.querySelectorAll(`[data-piece=${img.dataset.piece}]`);
-  slot = slots[slots.length - 1].parentElement;
-  slot.classList.remove("closed");
-  slot.classList.add("open");
 }
 
 function viableMove() {
