@@ -92,7 +92,7 @@ function startQuiz() {
   this.userAnswer = null;
   this.pickedQuestion = null;
   this.userScore = 0;
-
+  this.streak = 0;
   console.log("");
   console.log("Enter the letter of the correct answer");
   console.log(""); // picks a random index from an array
@@ -106,6 +106,26 @@ function startQuiz() {
 
   // }
 
+  // this.streakChecker = function () {
+  //   this.streak = 0;
+
+  //   if (
+  //     this.userAnswer.toUpperCase() === this.correctAnswers[this.pickedQuestion]
+  //   ) {
+  //     this.streak++;
+  //     console.log("streak added");
+  //   } else {
+  //     this.streak = 0;
+  //   }
+
+  //   if (this.streak === 5) {
+  //     alert("YOU ARE ON A 5 POINT STREAK!");
+  //   } else if (this.streak === 10) {
+  //     alert("YOU ARE ON A 10 POINT STREAK!");
+  //   } else if (this.streak === 15) {
+  //     alert("YOU ARE ON A 15 POINT STREAK!");
+  //   }
+  // };
   this.randomQuestion = function () {
     this.pickedQuestion = randomize();
     let index;
@@ -137,11 +157,20 @@ function startQuiz() {
     if (
       this.userAnswer.toUpperCase() === this.correctAnswers[this.pickedQuestion]
     ) {
+      this.streak++;
       console.log("Your answer is correct!");
       console.log("");
       this.addPoint();
       console.log(`Your Points: ${this.userScore}`);
       console.log("");
+      if (this.streak === 5) {
+        alert("YOU ARE ON A 5 POINT STREAK!");
+      } else if (this.streak === 10) {
+        alert("YOU ARE ON A 10 POINT STREAK!");
+      } else if (this.streak === 15) {
+        alert("YOU ARE ON A 15 POINT STREAK!");
+      }
+
       // console.log(`Enter "startQuiz()" to generate another random question`);
       this.randomQuestion();
     } else if (this.userAnswer.toUpperCase() === "EXIT") {
@@ -151,6 +180,7 @@ function startQuiz() {
       console.log("");
       console.log("You quit oof");
     } else {
+      this.streak--;
       console.log("Your answer is wrong!");
       console.log("");
 
@@ -173,6 +203,7 @@ function startQuiz() {
       // console.log(`Enter "startQuiz()" to generate another random question`);
       console.log(`Your Points: ${this.userScore}`);
       console.log("");
+      this.streakChecker();
       this.randomQuestion();
     }
   };
