@@ -1,3 +1,5 @@
+document.getElementsByTagName("h1")[0].style.fontSize = "6vw";
+
 /* Store questions, choices, and answers in an array */
 const question = [];
 const choices = [
