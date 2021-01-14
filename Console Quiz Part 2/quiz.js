@@ -83,10 +83,9 @@ question[14] = "What does View Source do?";
 
 /* Note */
 console.log(`Enter "startQuiz()" to begin quiz`);
-
+// startQuiz();
 /* Main Function */
 function startQuiz() {
-  // this.H1 = document.getElementsByTagName("h1");
   this.questions = question;
   this.choices = choices;
   this.correctAnswers = answers;
@@ -130,8 +129,8 @@ function startQuiz() {
   this.randomQuestion = function () {
     this.pickedQuestion = randomize();
     let index;
-    // this.H1 =
-    //   this.pickedQuestion + 1 + ". " + this.questions[this.pickedQuestion];
+    this.H1 = document.getElementById("question").innerHTML =
+      this.pickedQuestion + 1 + ". " + this.questions[this.pickedQuestion];
     console.log(
       this.pickedQuestion + 1 + ". " + this.questions[this.pickedQuestion]
     );
@@ -146,6 +145,7 @@ function startQuiz() {
     }
 
     this.userAnswer = prompt("Choose the letter of correct answer.");
+    // this.userAnswer = document.getElementById("input").innerHTML;
     this.checkAnswer();
   };
 
