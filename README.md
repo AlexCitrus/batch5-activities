@@ -17,3 +17,4 @@ This is where I submit all my works in AvionSchool.
 - [Coding Challenge BookStore](./Codeing%20Challenge%20Objects/index.html)
 
 - [Chess Game with JavaScript](./Chess%20with%20Javascript/index.html)
+- [Recipe App Powered by Edamam](./Recipe-App-API/index.html)
