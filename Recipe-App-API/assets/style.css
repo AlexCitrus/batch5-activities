@@ -572,8 +572,9 @@ img {
   }
 
   .change-theme {
+    font-size: 20px;
     position: initial;
-    margin-left: var(--mb-2);
+    margin-left: var(--mb-6);
   }
 
   .home__container {
@@ -584,6 +585,25 @@ img {
   .services__container,
   .menu__container {
     margin-top: var(--mb-6);
+  }
+
+  .menu {
+    height: 50vw;
+  }
+
+  svg {
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    height: 30%;
+    visibility: hidden;
+    display: flex;
+  }
+
+  .loader {
+    margin-top: 20px;
+    display: none;
+    justify-content: center;
   }
 
   .menu__container {

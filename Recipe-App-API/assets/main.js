@@ -136,6 +136,7 @@ const mealList = document.getElementById("meal");
 const container = document.getElementById("menu");
 const searchResultDiv = document.getElementById("meal");
 const noResultsFound = document.querySelector(".noRecipe");
+const loader = document.querySelector(".loader");
 let searchQuery = "";
 const APP_ID = "94f4353f";
 const API_KEY = "ad2fa088bd506f53f655fa82fecd83a2";
@@ -148,6 +149,7 @@ searchForm.addEventListener("submit", (e) => {
 
 const generateHTML = (results) => {
   noResultsFound.classList.remove("shown");
+  loader.classList.remove("shown");
 
   let generatedHTML = ``;
   results.map((result) => {
@@ -175,6 +177,8 @@ const noResults = () => {
 };
 
 const fetchAPI = async () => {
+  searchResultDiv.innerHTML = ``;
+  loader.classList.add("shown");
   const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${API_KEY}&to=20`;
   const response = await fetch(baseURL);
   const data = await response.json();
@@ -186,3 +190,31 @@ const fetchAPI = async () => {
     noResults();
   }
 };
+
+class App {
+  constructor() {
+    const tl = new TimelineMax({ repeat: -1 });
+    tl.to([".pizzaOutline", ".pizzaMask"], 7, {
+      rotation: 360,
+      svgOrigin: "61 61",
+      ease: Linear.easeNone,
+    }).to(
+      ".whole",
+      7,
+      {
+        rotation: -45,
+        svgOrigin: "61 61",
+        ease: Linear.easeNone,
+      },
+      0
+    );
+  }
+}
+
+TweenMax.set("svg", {
+  visibility: "visible",
+});
+
+var app = new App();
+
+TweenMax.globalTimeScale(4);
