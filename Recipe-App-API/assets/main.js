@@ -157,9 +157,10 @@ const generateHTML = (results) => {
             <span class="menu__preci">${result.recipe.calories.toFixed(
               2
             )}</span>
-            <a href="${result.recipe.url}" class="button menu__button"
-              ><i class="bx bx-cart-alt"></i
-            ></a>
+            <a href="${
+              result.recipe.url
+            }" target="_blank" class="button menu__button"
+              ><i class='bx bx-tag-alt'></i></a>
           </div>
     `;
   });
