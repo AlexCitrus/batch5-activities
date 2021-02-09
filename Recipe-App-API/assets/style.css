@@ -192,7 +192,7 @@ img {
     justify-content: center;
   }
 
-  svg {
+  .loader svg {
     top: 50%;
     left: 50%;
     width: 30%;
@@ -576,6 +576,12 @@ img {
     padding-top: 8rem;
   }
 
+  .section-underTitle {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+
   .nav {
     height: calc(var(--header-height) + 1.5rem);
   }
@@ -610,7 +616,7 @@ img {
     height: 50vw;
   }
 
-  svg {
+  .loader svg {
     top: 50%;
     left: 50%;
     width: 30%;
@@ -673,3 +679,8 @@ img {
   display: none;
   justify-content: center;
 } */
+.section-underTitle {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
