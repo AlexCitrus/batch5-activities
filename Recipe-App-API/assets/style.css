@@ -617,3 +617,14 @@ img {
     column-gap: 7rem;
   }
 }
+
+.noRecipe {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.shown {
+  display: flex;
+}

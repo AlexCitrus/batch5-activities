@@ -133,6 +133,7 @@ const searchForm = document.querySelector(".menu__search");
 const mealList = document.getElementById("meal");
 const container = document.getElementById("menu");
 const searchResultDiv = document.getElementById("meal");
+const noResultsFound = document.querySelector(".noRecipe");
 let searchQuery = "";
 const APP_ID = "94f4353f";
 const API_KEY = "ad2fa088bd506f53f655fa82fecd83a2";
@@ -144,6 +145,8 @@ searchForm.addEventListener("submit", (e) => {
 });
 
 const generateHTML = (results) => {
+  noResultsFound.classList.remove("shown");
+
   let generatedHTML = ``;
   results.map((result) => {
     generatedHTML += `
@@ -163,10 +166,20 @@ const generateHTML = (results) => {
   searchResultDiv.innerHTML = generatedHTML;
 };
 
+const noResults = () => {
+  noResultsFound.classList.add("shown");
+  searchResultDiv.innerHTML = ``;
+};
+
 const fetchAPI = async () => {
   const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${API_KEY}&to=20`;
   const response = await fetch(baseURL);
   const data = await response.json();
-  generateHTML(data.hits);
-  console.log(data);
+  if (data.more === true) {
+    generateHTML(data.hits);
+    console.log(data);
+  } else {
+    console.log("bobo ampotek");
+    noResults();
+  }
 };
