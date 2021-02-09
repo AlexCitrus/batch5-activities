@@ -16,6 +16,7 @@ showMenu("nav-toggle", "nav-menu");
 // REMOVE MENU FOR MOBILE
 
 const navLink = document.querySelectorAll(".nav__link");
+const darkBtn = document.querySelector(".change-theme");
 
 const linkAction = () => {
   const navMenu = document.getElementById("nav-menu");
@@ -24,6 +25,7 @@ const linkAction = () => {
 };
 
 navLink.forEach((n) => n.addEventListener("click", linkAction));
+darkBtn.addEventListener("click", linkAction);
 
 // SCROLL SECTIONS ACTIVE LINK
 
