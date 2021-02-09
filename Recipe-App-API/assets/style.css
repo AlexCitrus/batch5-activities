@@ -185,6 +185,25 @@ img {
     border-radius: 0 0 1rem 1rem;
     z-index: var(--z-fixed);
   }
+
+  .loader {
+    margin-top: 20px;
+    display: none;
+    justify-content: center;
+  }
+
+  svg {
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    height: 30%;
+    visibility: hidden;
+    display: flex;
+  }
+
+  .menu {
+    height: 220vw;
+  }
 }
 
 .nav__item {
@@ -648,3 +667,9 @@ img {
 .shown {
   display: flex;
 }
+
+/* .loader {
+  margin-top: 20px;
+  display: none;
+  justify-content: center;
+} */

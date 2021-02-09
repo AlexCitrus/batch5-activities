@@ -149,7 +149,7 @@ searchForm.addEventListener("submit", (e) => {
 
 const generateHTML = (results) => {
   noResultsFound.classList.remove("shown");
-  loader.classList.remove("shown");
+  loading();
 
   let generatedHTML = ``;
   results.map((result) => {
@@ -168,17 +168,25 @@ const generateHTML = (results) => {
           </div>
     `;
   });
+  loader.classList.remove("shown");
   searchResultDiv.innerHTML = generatedHTML;
 };
 
+const loading = () => {
+  searchResultDiv.innerHTML = ``;
+  loader.classList.add("shown");
+};
+
 const noResults = () => {
+  loader.classList.remove("shown");
   noResultsFound.classList.add("shown");
   searchResultDiv.innerHTML = ``;
 };
 
 const fetchAPI = async () => {
+  noResultsFound.classList.remove("shown");
   searchResultDiv.innerHTML = ``;
-  loader.classList.add("shown");
+  loading();
   const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${API_KEY}&to=20`;
   const response = await fetch(baseURL);
   const data = await response.json();
