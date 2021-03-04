@@ -1,4 +1,4 @@
-def approx_sqrt(num)
+def sqrt(num)
     low = 1
     high = num
     while high > low + 1
@@ -22,7 +22,7 @@ def approx_sqrt(num)
     end
   
       result = false
-      square = approx_sqrt(x)
+      square = sqrt(x)
       result = x  == square * square
       puts "#{x} => #{result}"
       return result
