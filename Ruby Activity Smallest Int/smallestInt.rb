@@ -7,7 +7,8 @@ def smallest_int(arr)
         end
     end
 
-   puts smallest
+#    puts smallest
+   puts "The smallest integer is: #{smallest}"
 end
 
-smallest_int([-1, 30, 30])
+smallest_int([-1, 30, 40, 20, -4])
