@@ -13,7 +13,9 @@ module PortableDevice
     end
 
     def charge(val)
+        puts "Charged #{val}%"
         self.battery_level += val
+        
     end
 end
 
@@ -23,14 +25,19 @@ module ComputeDevice
     end
 end
 
-
-
 class Laptop 
     include PortableDevice
+    def battery_level=(battery_level)
+        super
+        puts "Battery level is #{battery_level}"
+    end
 end
 
-class Phone
-    include PortableDevice
+class Phone < Laptop
+    def battery_level=(battery_level)
+        super
+        
+    end
 end
 
 class Computer
@@ -41,5 +48,13 @@ mac = Laptop.new
 mac.battery_level = 20
 mac.charge(30)
 mac.check_cell_signal
-puts mac.battery_level
+
+
+iPhone = Phone.new
+iPhone.battery_level = 80
+iPhone.charge(20)
+
+iMac = Computer.new
+iMac.boot
+
 
