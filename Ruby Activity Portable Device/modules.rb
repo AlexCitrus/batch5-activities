@@ -17,6 +17,10 @@ module PortableDevice
         self.battery_level += val
         
     end
+
+    def boot 
+        puts "Booting device..."
+    end
 end
 
 module ComputeDevice
@@ -27,16 +31,20 @@ end
 
 class Laptop 
     include PortableDevice
+
     def battery_level=(battery_level)
         super
-        puts "Battery level is #{battery_level}"
+        print "Laptop "
+        puts "Battery level is #{battery_level}%"
     end
 end
 
-class Phone < Laptop
+class Phone 
+    include PortableDevice
     def battery_level=(battery_level)
         super
-        
+        print "Phone "
+        puts "Battery level is #{battery_level}%"
     end
 end
 
@@ -44,17 +52,22 @@ class Computer
     include ComputeDevice
 end
 
+
+
+
+
+
 mac = Laptop.new
 mac.battery_level = 20
 mac.charge(30)
 mac.check_cell_signal
 
-
 iPhone = Phone.new
 iPhone.battery_level = 80
 iPhone.charge(20)
+iPhone.check_cell_signal
 
-iMac = Computer.new
-iMac.boot
+# iMac = Computer.new
+# iMac.boot
 
 
