@@ -12,8 +12,8 @@ module PortableDevice
         puts "Searching cell site..."
     end
 
-    def charge
-        self.battery_level += 1
+    def charge(val)
+        self.battery_level += val
     end
 end
 
@@ -39,6 +39,7 @@ end
 
 mac = Laptop.new
 mac.battery_level = 20
-mac.charge
+mac.charge(30)
+mac.check_cell_signal
 puts mac.battery_level
 
