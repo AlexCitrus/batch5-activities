@@ -16,27 +16,27 @@ dial_book = {
   end
   
   def get_area_code(somehash, key)
-    return somehash[key]
+    return somehash[key]  #returns the area code
   end
   
   loop do
     puts "Do you want to find an area code based on a city name?(Y/N)"
     answer = gets.chomp.downcase
         if answer == "yes" || answer == "y"
-            keys = get_city_names(dial_book)
+            keys = get_city_names(dial_book)    #returns dial_book hash
             puts "Which city do you want the area code for?"
             puts ""
             puts keys
             print "Enter your selection : "
-            city = gets.chomp
-                if dial_book.include?(city)
-                area_code = get_area_code(dial_book, city)
+            city = gets.chomp 
+                if dial_book.include?(city)  #check if hash includes user input
+                area_code = get_area_code(dial_book, city) 
                 puts "The area code for #{city} is #{area_code}"
                 else
                 puts "This city is not in our dial book"
                 end
             else
-            puts "Loop terminated..."
+            puts "Loop terminated..."  #loop terminates if user didn't answer "yes" or "y"
             break
         end
   end
