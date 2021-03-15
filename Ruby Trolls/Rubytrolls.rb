@@ -2,7 +2,7 @@
 
 def disemvowel(string)
     vowels = "aeiou"
-    puts (string.chars - vowels.chars).join
+    return (string.chars - vowels.chars).join
 end
 
 
