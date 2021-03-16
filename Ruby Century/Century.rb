@@ -1,10 +1,6 @@
 
 def century_from_year(year)
-    if (year % 100) == 0
-        year / 100
-      else 
-        (year - (year % 100)) / 100 + 1
-      end
+      year % 100 == 0 ? year / 100 : (year - (year % 100)) / 100 + 1
 end
 
 puts century_from_year(1705)
