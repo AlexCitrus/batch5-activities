@@ -194,7 +194,7 @@ const fetchAPI = async () => {
     generateHTML(data.hits);
     console.log(data);
   } else {
-    console.log("bobo ampotek");
+    console.log("Try Again");
     noResults();
   }
 };
